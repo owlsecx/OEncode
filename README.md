@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Multi-layer encode/decode pipelines for CTF & forensics ║
+OEncode is a CLI encode/decode chain engine for CTF and forensics work. It auto-detects nested encodings, recursively unwraps layers, and supports a wide codec set including Base58/64/32/85, hex, URL/HTML, classical ciphers, JWT, and compressed Base64 blends. Distinct from OConvertX’s GUI suite—focused on scriptable pipelines.
 
 ---
 
 ## ✨ Features
 
-- CTF encode/decode chain engine — auto-detect, recursive unwrap, Base58, Gzip+B64, XOR/Caesar brute (CLI; distinct from OConvertX)
+- Encode and decode with named codecs (base64, base58, hex, URL, HTML, and more)
+- Auto-detect mode with recursive unwrap of nested layers
+- XOR/Caesar brute helpers for simple classical obfuscation
+- JWT, Quoted-Printable, Punycode, Morse, ROT, and Gzip+B64 support
+- File or text input with JSON output for scripting
+- ANSI colour toggle for clean log capture
 
 ---
 
@@ -38,7 +43,10 @@ Multi-layer encode/decode pipelines for CTF & forensics ║
 ## 🚀 Usage
 
 ```bash
-./OEncode
+./OEncode -t 'SGVsbG8=' --decode base64
+./OEncode -t 'payload' --encode hex --json
+./OEncode -f sample.txt --auto
+./OEncode --help
 ```
 
 ---
